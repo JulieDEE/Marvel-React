@@ -1,0 +1,76 @@
+.comics-page{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+    padding : 20px 50px;
+
+    .comics-page-header{
+
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+    margin-bottom: 20px;
+
+.navbar{
+       .searchbar{
+        background-color: white;
+        width: 50%;
+        border-radius: 30px;
+
+        input{
+            width: 100%;
+            border : none;
+            background-color: transparent;
+            padding : 10px 20px;
+        }
+    }
+}
+
+
+    }
+
+    .comics-card{
+        
+        width: 100%;
+        background-color: white;
+        padding : 10px 30px;
+        display: flex;
+        gap : 30px;
+        border-radius: 10px;
+
+
+
+        .image{
+            height: 200px;
+            width: 150px;
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .description{
+            flex : 1;
+            color : black;
+            display: flex;
+            flex-direction: column;
+            padding-top : 10px;
+            gap : 10px;
+
+
+        }
+
+
+    }
+
+
+
+
+
+}
+
+
+
