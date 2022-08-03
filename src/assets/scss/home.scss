@@ -1,59 +1,73 @@
-.home{
- padding : 25px;
- display: flex;
- flex-direction: column;
- gap : 20px;
+.home {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-    h1{
-font-weight: 500;
-font-size: 30px;
-    }
+  h1 {
+    font-weight: 500;
+    font-size: 30px;
+  }
 
-    .searchbar{
-        background-color: white;
-        width: 50%;
-        border-radius: 30px;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0;
+    .searchbar {
+      background-color: white;
+      width: 50%;
+      border-radius: 30px;
 
-        input{
-            width: 100%;
-            border : none;
-            background-color: transparent;
-            padding : 10px 20px;
-        }
-    }
-}
-
-.personnage-grid{
-
-min-height: 100vh;
-width: 100%;
-display: flex;
-flex-wrap: wrap;
-gap : 10px;
-
-
-}
-
-.personnage-card{
-
-    width: calc(25% - 8px);
-    cursor: pointer;
-    text-decoration: none;
-    color : white;
-
-    h2{
-        font-size: 16px;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-
-    img{
+      input {
         width: 100%;
-        height: 300px;
-        object-fit: cover;
+        border: none;
+        background-color: transparent;
+        padding: 10px 20px;
+      }
     }
+
+    .page {
+      display: flex;
+      gap: 20px;
+
+      .pagination {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
 }
 
-.personnage-card:hover{
-    opacity: 80%;
+.personnage-grid {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.personnage-card {
+  width: calc(25% - 8px);
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+
+  h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+.personnage-card:hover {
+  opacity: 80%;
 }
