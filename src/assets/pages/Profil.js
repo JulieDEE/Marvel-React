@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
@@ -9,51 +9,33 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
-   const location = useLocation();
-  const { id } = location.state;
-  
-  console.log(id);
+
 
   // AXIOS REQUEST FOR USER INFO : 
   useEffect(() => {
     const data = async () => {
       const response = await axios.get(
-        `http://localhost:4100/user/infos?id=${id}`
+        `http://localhost:4100/user/infos?id=${userId}`
       );
-      console.log(response.data);
       setUserInfo(response.data);
       setLoadInfos(false); 
     }
-         
-
     data(); 
   }, [])
 
   // AXIOS REQUEST PROFIL DATABASE BY USERID
   useEffect(() => {
-    // CHECK FOR DB CHARACTERS
+
     const favoritesData = async () => {
       const response = await axios.get(
-        `http://localhost:4100/profil?id=${Cookies.get("userId")}`
+        `http://localhost:4100/profil?id=${userId}`
       );
-
-      response.data.forEach((element) => {
-        const newData = [...data];
-        if (element.owner._id === Cookies.get("userId")) {
-          newData.push(element);
-          setData(newData);
-        }
-      });
-
+      setData(response.data);
       setLoadChara(false);
     };
 
-    console.log(data);
-
     favoritesData();
   }, []);
-
-
 
   // DECONNEXION
   const handleDeconnect = () => {
@@ -79,8 +61,8 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
         <div className="left-container">
           <div className="favorites">
             <h2>Vos Personnages préférés : </h2>
-            {/* <div className="fav-container">
-              {favChara.map((character) => {
+            <div className="fav-container">
+              {data.map((character) => {
                 return (
                   <div className="favChar-card">
                     <h1> {character.name} </h1>
@@ -90,7 +72,7 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
                   </div>
                 );
               })}
-            </div> */}
+            </div>
           </div>
 
           <div className="favorites">

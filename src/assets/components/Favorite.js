@@ -34,7 +34,7 @@ const Favorite = ({ data, token, userId }) => {
       
       setLove(data._id);
       Cookies.set("love", data._id);
-
+          
       const formData = new FormData();
       formData.append("name", data.name);
       formData.append(

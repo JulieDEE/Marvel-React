@@ -36,7 +36,7 @@ const Signup = ({ token, setToken, setUserId }) => {
         Cookies.set("token", response.data.token);
         setUserId(response.data._id);
         Cookies.set("userId", response.data._id);
-        navigate("/profil", { state: { id: response.data._id } });
+        navigate("/profil");
       }
     } catch (error) {}
   };
