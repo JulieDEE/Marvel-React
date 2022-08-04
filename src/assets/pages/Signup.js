@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Signup = ({ token, setToken }) => {
+const Signup = ({ token, setToken, setUserId }) => {
   const navigate = useNavigate();
   // STATES INPUTS :
   const [userName, setUserName] = useState("");
@@ -30,10 +30,13 @@ const Signup = ({ token, setToken }) => {
           "http://localhost:4100/user/signup",
           formdata
         );
+        console.log(response.data);
         setData(response.data);
         setToken(response.data.token);
         Cookies.set("token", response.data.token);
-        navigate("/profil");
+        setUserId(response.data._id);
+        Cookies.set("userId", response.data._id);
+        navigate("/profil", { state: { id: response.data._id } });
       }
     } catch (error) {}
   };

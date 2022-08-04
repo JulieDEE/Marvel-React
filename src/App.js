@@ -20,7 +20,9 @@ import Login from "./assets/pages/Login";
 library.add(faHeart);
 
 function App() {
+
   // STATES //
+
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -33,6 +35,7 @@ function App() {
 
 
   // AXIOS REQUEST :
+
   useEffect(() => {
     const fetchData = async () => {
       let filters = "";
@@ -94,19 +97,35 @@ function App() {
               favoris={favoris}
               setFavoris={setFavoris}
               token={token}
+              userId={userId}
             />
           }
         />
-        <Route path="/comics" element={<Comics data={data} />} />
+        <Route path="/comics" element={<Comics data={data} token={token} />} />
         <Route
           path="/signup"
-          element={<Signup token={token} setToken={setToken} />}
+          element={
+            <Signup token={token} setToken={setToken} setUserId={setUserId} />
+          }
         />
         <Route
           path="/login"
-          element={<Login token={token} setToken={setToken} setUserId={setUserId} />}
+          element={
+            <Login token={token} setToken={setToken} setUserId={setUserId} />
+          }
         />
-          <Route path="/profil" element={<Profil userId={userId} setUserId={setUserId} setFavCharac={setFavCharac} favChara={favChara} setToken={setToken} />} />
+        <Route
+          path="/profil"
+          element={
+            <Profil
+              userId={userId}
+              setUserId={setUserId}
+              setFavCharac={setFavCharac}
+              favChara={favChara}
+              setToken={setToken}
+            />
+          }
+        />
       </Routes>
     </Router>
   );

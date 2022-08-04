@@ -54,7 +54,30 @@ nav {
         display: flex;
         gap : 30px;
         border-radius: 10px;
+        position: relative;
 
+        .flex{
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .icon{
+          height: 50px;
+          width: 50px;
+          font-size: 35px;
+          color : black;
+          position : relative;
+          cursor: pointer;
+
+          img{
+            height: 80%;
+            width: 80%;
+            object-fit: cover;
+            position: absolute;
+            right: 11px;
+            top : 8px;
+          }
+        }
 
 
         .image{

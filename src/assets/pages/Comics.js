@@ -1,12 +1,23 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import blackHeart from "../images/blackHeart.png";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const Comics = ({ data }) => {
+const Comics = ({ data, love, token }) => {
+  const navigate = useNavigate();
+
+  // STATES //
+
   const [comicsData, setComicData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(12);
+  const [loveComic, setLoveComic] = useState(Cookies.get("loveComic") || null);
+
+  // PAGINATION //
 
   const nextPage = () => {
     const maxPage = data.count / limit;
@@ -19,6 +30,8 @@ const Comics = ({ data }) => {
       setPage(page - 1);
     }
   };
+
+  // AXIOS REQUEST FOR ALL COMICS //
 
   useEffect(() => {
     const comicsData = async () => {
@@ -53,6 +66,11 @@ const Comics = ({ data }) => {
 
     comicsData();
   }, [search, page, limit]);
+
+
+ 
+
+  // RETURN //
 
   return isLoading ? (
     console.log("loading")
@@ -99,7 +117,13 @@ const Comics = ({ data }) => {
               />
             </div>
             <div className="description">
-              <h2> {comic.title} </h2>
+              <div className="flex">
+                <h2> {comic.title} </h2>
+                <div className="icon">
+                  <img src={blackHeart} alt="" />
+                </div>
+              </div>
+
               <p>{comic.description} </p>
             </div>
           </div>
