@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // IMPORT COMPONENTS :
 import Header from "./assets/components/Header";
@@ -14,15 +15,24 @@ import Character from "./assets/pages/Character";
 import Comics from "./assets/pages/Comics";
 import Signup from "./assets/pages/Signup";
 import Profil from "./assets/pages/Profil";
+import Login from "./assets/pages/Login";
+
+library.add(faHeart);
 
 function App() {
+  // STATES //
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(12);
   const [token, setToken] = useState(Cookies.get("token") || null);
+  const [userId, setUserId] = useState(Cookies.get("userId") || null);
+  const [favoris, setFavoris] = useState([]);
+  const [favChara, setFavCharac] = useState(null);
 
+
+  // AXIOS REQUEST :
   useEffect(() => {
     const fetchData = async () => {
       let filters = "";
@@ -60,7 +70,7 @@ function App() {
     console.log("Loading")
   ) : (
     <Router>
-        <Header token={token}/>
+      <Header token={token} />
 
       <Routes>
         <Route
@@ -77,13 +87,26 @@ function App() {
             />
           }
         />
-        <Route path="/character/:characterId" element={<Character />} />
+        <Route
+          path="/character/:characterId"
+          element={
+            <Character
+              favoris={favoris}
+              setFavoris={setFavoris}
+              token={token}
+            />
+          }
+        />
         <Route path="/comics" element={<Comics data={data} />} />
         <Route
           path="/signup"
           element={<Signup token={token} setToken={setToken} />}
         />
-        <Route path="/profil" element={<Profil />} />
+        <Route
+          path="/login"
+          element={<Login token={token} setToken={setToken} setUserId={setUserId} />}
+        />
+          <Route path="/profil" element={<Profil userId={userId} setUserId={setUserId} setFavCharac={setFavCharac} favChara={favChara} setToken={setToken} />} />
       </Routes>
     </Router>
   );

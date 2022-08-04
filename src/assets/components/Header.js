@@ -25,7 +25,7 @@ const Header = ({ token }) => {
             <Link to={"/signup"} className="link ">
               S'inscrire
             </Link>
-            <Link to={"/signup"} className="link ">
+            <Link to={"/login"} className="link ">
               Se connecter
             </Link>
           </>

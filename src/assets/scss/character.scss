@@ -22,10 +22,35 @@
     .titles {
       height: 20%;
 
+      .favoris{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .icon{
+          font-size: 30px;
+          height: 50px;
+          width: 50px;
+          position: relative;
+          cursor: pointer;
+
+          img{
+            height: 90%;
+            width: 85%;
+            object-fit: contain;
+            position: absolute;
+            left : -4px
+          }
+        }
+
+      }
+
       h1 {
         text-align: center;
         font-weight: 600;
-        margin-bottom: 30px;
+        width: 90%;
       }
     }
 

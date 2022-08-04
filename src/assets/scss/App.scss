@@ -4,8 +4,8 @@
 @import "./character.scss";
 @import "./comic.scss";
 @import "./signup.scss";
-
-
+@import "./login.scss";
+@import "./profil.scss";
 
 
 
@@ -25,3 +25,9 @@ body {
   background-color: black;
   color : white;
 }
+
+.wrapper{
+  max-width: 1400px;
+  margin : 0 auto;
+}
+
