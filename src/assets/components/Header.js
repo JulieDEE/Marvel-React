@@ -1,7 +1,8 @@
 import logo from "../images/logo.png";
 import { useNavigate, Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ token }) => {
+  console.log(token);
   const navigate = useNavigate();
   return (
     <header>
@@ -15,9 +16,20 @@ const Header = () => {
         <Link to={"/comics"} className="link">
           Comics
         </Link>
-        <Link to={"/"} className="link">
-          Favoris
-        </Link>
+        {token ? (
+          <Link to={"/profil"} className="link">
+            Profil
+          </Link>
+        ) : (
+          <>
+            <Link to={"/signup"} className="link ">
+              S'inscrire
+            </Link>
+            <Link to={"/signup"} className="link ">
+              Se connecter
+            </Link>
+          </>
+        )}
       </nav>
     </header>
   );

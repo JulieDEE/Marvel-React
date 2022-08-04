@@ -42,6 +42,7 @@
         height: 100%;
         width: 100%;
 
+
         .comic-card {
           padding: 10px;
           background-color: #fff;
@@ -51,6 +52,7 @@
           align-items: center;
           border-radius: 10px;
           cursor: pointer;
+          position: relative;
 
           h3 {
             font-size: 15px;
@@ -73,21 +75,23 @@
               object-fit: cover;
             }
           }
-
-          p {
-            font-size: 12px;
-            color: black;
-          }
+         
         }
       }
     }
   }
 }
 
+ 
+
 .charac-description {
   padding: 20px 30px;
 }
 
-.comic-card:hover{
-    opacity: 80%;
+.comic-card:hover {
+  opacity: 40%;
+}
+
+.description-card:hover{
+  opacity: 1;
 }

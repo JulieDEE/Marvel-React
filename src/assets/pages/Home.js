@@ -1,6 +1,18 @@
 import Personnage from "../components/Personnage";
 
-const Home = ({ data, search, setSearch }) => {
+const Home = ({ data, search, setSearch, page, setPage, limit, setLimit }) => {
+  const nextPage = () => {
+    const maxPage = data.count / limit;
+    if (page < maxPage - 1) {
+      setPage(page + 1);
+    }
+  };
+  const previewsPage = () => {
+    if (page > 0) {
+      setPage(page - 1);
+    }
+  };
+
   return (
     <>
       <div className="home">
@@ -17,15 +29,18 @@ const Home = ({ data, search, setSearch }) => {
           </div>
           <div className="page">
             <div className="pagination">
-              <button> ← </button>
-              <p>Page 1</p>
-              <button>→</button>
+              <button onClick={previewsPage}> ← </button>
+              <p>Page {page + 1} </p>
+              <button onClick={nextPage}>→</button>
             </div>
-            <select name="resultNumber" id="resultNumber">
-              <option value="">Resultats</option>
-              <option value="ten">10</option>
-              <option value="fifty">50</option>
-              <option value="hundred">100</option>
+            <select
+              name="resultNumber"
+              id="resultNumber"
+              onChange={(e) => setLimit(e.target.value)}
+            >
+              <option value="12">12 par page</option>
+              <option value="50">50 par page</option>
+              <option value="100">100 par page</option>
             </select>
           </div>
         </nav>
