@@ -23,7 +23,7 @@ const Character = ({token, userId }) => {
     };
 
     comicsData();
-  }, []);
+  }, [characterId]);
 
  
   return (
@@ -40,7 +40,7 @@ const Character = ({token, userId }) => {
             <div className="titles">
               <div className="favoris">
                 <h1>{data.name}</h1>
-                  <Favorite data={data} token={token} /> 
+                  <Favorite data={data} token={token} userId={userId} /> 
               </div>
 
               <h2>Retrouvez le dans : </h2>
@@ -49,7 +49,7 @@ const Character = ({token, userId }) => {
               <div className="comic-caroussel">
                 {data.comics.map((comic, index) => {
                   return (
-                    <div className="comic-card">
+                    <div key={index} className="comic-card">
                       <h3>{comic.title}</h3>
                       <div className="image">
                         <img

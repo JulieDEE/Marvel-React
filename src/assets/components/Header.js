@@ -2,7 +2,6 @@ import logo from "../images/logo.png";
 import { useNavigate, Link } from "react-router-dom";
 
 const Header = ({ token }) => {
-  console.log(token);
   const navigate = useNavigate();
   return (
     <header>

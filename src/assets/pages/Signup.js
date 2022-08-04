@@ -12,7 +12,6 @@ const Signup = ({ token, setToken, setUserId }) => {
   const [password, setPassword] = useState("");
   const [picture, setPicture] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [data, setData] = useState(null);
 
   // FORM SUBMIT :
   const handleSubmit = async (e) => {
@@ -30,8 +29,6 @@ const Signup = ({ token, setToken, setUserId }) => {
           "http://localhost:4100/user/signup",
           formdata
         );
-        console.log(response.data);
-        setData(response.data);
         setToken(response.data.token);
         Cookies.set("token", response.data.token);
         setUserId(response.data._id);

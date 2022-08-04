@@ -1,12 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import blackHeart from "../images/blackHeart.png";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 
 const Comics = ({ data, love, token }) => {
-  const navigate = useNavigate();
 
   // STATES //
 
@@ -15,7 +11,6 @@ const Comics = ({ data, love, token }) => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const [limit, setLimit] = useState(12);
-  const [loveComic, setLoveComic] = useState(Cookies.get("loveComic") || null);
 
   // PAGINATION //
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
+const Profil = ({ userId,setToken, setUserId }) => {
   const [LoadChara, setLoadChara] = useState(true);
   const [loadInfos, setLoadInfos] = useState(true); 
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
       setLoadInfos(false); 
     }
     data(); 
-  }, [])
+  }, [userId])
 
   // AXIOS REQUEST PROFIL DATABASE BY USERID
   useEffect(() => {
@@ -35,7 +35,7 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
     };
 
     favoritesData();
-  }, []);
+  }, [userId]);
 
   // DECONNEXION
   const handleDeconnect = () => {
@@ -62,9 +62,9 @@ const Profil = ({ userId, setFavCharac, favChara, setToken, setUserId }) => {
           <div className="favorites">
             <h2>Vos Personnages préférés : </h2>
             <div className="fav-container">
-              {data.map((character) => {
+              {data.map((character, index) => {
                 return (
-                  <div className="favChar-card">
+                  <div key={index} className="favChar-card">
                     <h1> {character.name} </h1>
                     <div className="image">
                       <img src={character.picture} alt="" />

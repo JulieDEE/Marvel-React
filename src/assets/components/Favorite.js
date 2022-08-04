@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 const Favorite = ({ data, token, userId }) => {
   const navigate = useNavigate();
   const [love, setLove] = useState(false);
-    const [inDataBase, setInDataBase] = useState();
+    const [inDataBase, setInDataBase] = useState(null);
+    
+    console.log(userId);
     
 
   // CHECK FOR DB CHARACTERS
