@@ -82,18 +82,18 @@ const Profil = ({ userId, setToken, setUserId }) => {
           <h1>Vos informations</h1>
           <div className="avatar-flex">
             <div className="avatar">
-              <img src={userInfo.account.avatar.secure_url} alt="" />
+              <img src={userInfo?.account?.avatar.secure_url} alt="" />
             </div>
           </div>
           <div className="flex-container">
             <div className="info-container">
               <span className="title">Votre email : </span>
-              <span className="dynamic">{userInfo.email}</span>
+              <span className="dynamic">{userInfo?.email}</span>
             </div>
             <div className="info-container">
               <span className="title">Pseudo : </span>
               <span className="dynamic pseudo">
-                {userInfo.account.username}
+                {userInfo?.account?.username}
               </span>
             </div>
           </div>
