@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faPlus, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 // IMPORT COMPONENTS :
 import Header from "./assets/components/Header";
@@ -17,7 +17,7 @@ import Signup from "./assets/pages/Signup";
 import Profil from "./assets/pages/Profil";
 import Login from "./assets/pages/Login";
 
-library.add(faHeart);
+library.add(faHeart, faPlus, faBars, faXmark);
 
 function App() {
 
@@ -72,7 +72,7 @@ function App() {
   return isLoading ? (
     console.log("Loading")
   ) : (
-    <Router>
+      <Router>
       <Header token={token} />
 
       <Routes>

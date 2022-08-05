@@ -1,8 +1,10 @@
 import { useState } from "react";
-import signup from "../images/signup.png";
+import marvel from "../images/marvel.jpeg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const Signup = ({ token, setToken, setUserId }) => {
   const navigate = useNavigate();
@@ -80,20 +82,27 @@ const Signup = ({ token, setToken, setUserId }) => {
             </div>
             <div className="input-wrap">
               <h3>AVATAR :</h3>
-              <input
-                type="file"
-                placeholder="Ajouter une photo de profil"
-                onChange={(e) => {
-                  setPicture(e.target.files[0]);
-                  setPreview(URL.createObjectURL(e.target.files[0]));
-                }}
-              />
+              <label className="add-picture" htmlFor="addPicture">
+                <span>
+                  <FontAwesomeIcon icon="fa-solid fa-plus" />
+                </span>
+                Ajouter une image
+                <input
+                  type="file"
+                  id="addPicture"
+                  placeholder="Ajouter une photo de profil"
+                  onChange={(e) => {
+                    setPicture(e.target.files[0]);
+                    setPreview(URL.createObjectURL(e.target.files[0]));
+                  }}
+                />
+              </label>
             </div>
             <div className="preview">
               {preview ? (
                 <img src={preview} alt="" />
               ) : (
-                <img src={signup} alt="" />
+                <img src={marvel} alt="" />
               )}
             </div>
           </div>

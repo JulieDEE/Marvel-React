@@ -8,15 +8,16 @@
   h1 {
     margin-top: 20px;
     background-color: red;
-    font-size: 35px;
-    font-weight: 700;
+    font-size: 55px;
+    line-height: 30px;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 10px 5px;
+    font-family: "Mouse Memoirs", sans-serif;
   }
 
   .signup-container {
     margin-top: 30px;
-    width: 60%;
+    width: 50%;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -28,10 +29,10 @@
       width: 100%;
       height: 100%;
       padding: 30px 20px;
-          display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position : relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
 
       .elements {
         display: flex;
@@ -42,17 +43,40 @@
       .input-wrap {
         display: flex;
 
+       
       }
 
       input {
         flex: 1;
         padding: 10px;
         border-radius: 5px;
-        border: 1px solid rgb(152, 147, 147);
+        border: 1px solid lightgrey;
       }
 
-      input::placeholder{
-        color : lightgrey
+      #addPicture {
+        display: none;
+      }
+
+      .add-picture {
+        flex: 1;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        cursor: pointer;
+        color: red;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span{
+          margin-right: 20px;
+        }
+      }
+
+      input::placeholder {
+        color: lightgrey;
       }
 
       h3 {
@@ -62,11 +86,11 @@
         width: 300px;
       }
 
-      .btn-container{
+      .btn-container {
         display: flex;
       }
 
-         .hidden {
+      .hidden {
         width: 300px;
       }
 
@@ -77,32 +101,29 @@
         border: none;
         background-color: red;
         border-radius: 10px;
-        font-size: 15px;
+        font-size: 30px;
         font-weight: 500;
         align-self: flex-end;
         cursor: pointer;
-        flex : 1;
+        flex: 1;
+        font-family: "Mouse Memoirs", sans-serif;
       }
 
-        .preview{
-            height:150px;
-            width: 150px;
-            position: absolute;
-            left: 20px;
-            bottom: 20px;
+      .preview {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
 
-            img{
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                border-radius: 50%;
-                border : 2px solid black
-            }
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 2px solid black;
         }
-
-     
-
-
+      }
     }
   }
 }

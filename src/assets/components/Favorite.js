@@ -10,18 +10,18 @@ const Favorite = ({ data, token, userId }) => {
   const [love, setLove] = useState(false);
   const [inDataBase, setInDataBase] = useState(null);
 
-  console.log(userId);
-
   // CHECK FOR DB CHARACTERS
 
   useEffect(() => {
     const favoritesData = async () => {
-      const response = await axios.get(
-        `https://marvelbackend-01.herokuapp.com/profil?id=${userId}`
-      );
-      setInDataBase(response.data);
+      if (userId) {
+        const response = await axios.get(
+          `https://marvelbackend-01.herokuapp.com/profil?id=${userId}`
+        );
+        setInDataBase(response.data);
+      }
+      favoritesData();
     };
-    favoritesData();
   }, [userId]);
 
   console.log(inDataBase);

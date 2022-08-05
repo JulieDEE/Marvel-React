@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
 @import "./header.scss";
 @import "./home.scss";
 @import "./character.scss";
@@ -6,8 +7,6 @@
 @import "./signup.scss";
 @import "./login.scss";
 @import "./profil.scss";
-
-
 
 * {
   margin: 0;
@@ -17,17 +16,135 @@
   font-weight: 400;
 }
 
-input:focus{
+input:focus {
   outline: none;
 }
 
 body {
-  background-color: black;
-  color : white;
+  background-color: #0f0e0ef4;
+  color: white;
 }
 
-.wrapper{
+.wrapper {
   max-width: 1400px;
-  margin : 0 auto;
+  margin: 0 auto;
 }
 
+.nav-phone{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.hidden{
+  display: none;
+}
+
+@media (max-width: 1000px) {
+
+  //HOME
+  .personnage-card {
+    width: calc(33% - 5px);
+  }
+}
+
+@media (max-width: 900px) {
+
+  //HOME + HEADER // 
+  .home {
+    padding: 10px 25px;
+    gap: 10px;
+    h1 {
+      font-size: 25px;
+    }
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 20px 0;
+      .searchbar {
+        height: 30px;
+
+        input {
+          height: 100%;
+        }
+      }
+
+      .page {
+        button {
+          height: 20px;
+          width: 20px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .comics-page-header{
+    
+nav {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 20px 0;
+      .searchbar {
+        height: 30px;
+
+        input {
+          height: 100%;
+        }
+      }
+
+      .page {
+        button {
+          height: 20px;
+          width: 20px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:680px){
+  .personnage-card {
+    width: calc(50% - 5px);
+  }
+
+  .home{
+
+    h1{
+      text-align: center;
+    }
+  }
+
+  header{
+    nav {
+      display: none;
+    }
+    .nav-phone{
+      display: block;
+      color : white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+  }
+
+  @media( max-width : 560px){
+     .personnage-card {
+    width: calc(100% - 5px);
+  }
+  }
+
+}
