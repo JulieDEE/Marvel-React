@@ -61,7 +61,7 @@ function App() {
         }
       }
       const response = await axios.get(
-        `http://localhost:4100/characters` + filters
+        `https://marvelbackend-01.herokuapp.com/characters` + filters
       );
       setData(response.data);
       setIsLoading(false);

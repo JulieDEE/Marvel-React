@@ -26,7 +26,7 @@ const Signup = ({ token, setToken, setUserId }) => {
         formdata.append("email", email);
 
         const response = await axios.post(
-          "http://localhost:4100/user/signup",
+          "https://marvelbackend-01.herokuapp.com/user/signup",
           formdata
         );
         setToken(response.data.token);

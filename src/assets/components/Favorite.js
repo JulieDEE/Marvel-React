@@ -8,35 +8,31 @@ import { useState, useEffect } from "react";
 const Favorite = ({ data, token, userId }) => {
   const navigate = useNavigate();
   const [love, setLove] = useState(false);
-    const [inDataBase, setInDataBase] = useState(null);
-    
-    console.log(userId);
-    
+  const [inDataBase, setInDataBase] = useState(null);
+
+  console.log(userId);
 
   // CHECK FOR DB CHARACTERS
 
   useEffect(() => {
     const favoritesData = async () => {
       const response = await axios.get(
-        `http://localhost:4100/profil?id=${userId}`
+        `https://marvelbackend-01.herokuapp.com/profil?id=${userId}`
       );
-        setInDataBase(response.data);
-        
+      setInDataBase(response.data);
     };
     favoritesData();
   }, [userId]);
-    
-    console.log(inDataBase);
 
+  console.log(inDataBase);
 
   // ADD TO FAVORITE //
 
   const handleFav = async (data) => {
-      if (token) {
-      
+    if (token) {
       setLove(data._id);
       Cookies.set("love", data._id);
-          
+
       const formData = new FormData();
       formData.append("name", data.name);
       formData.append(
@@ -46,7 +42,7 @@ const Favorite = ({ data, token, userId }) => {
       formData.append("id", data._id);
 
       const response = await axios.post(
-        "http://localhost:4100/charac/favorites",
+        "https://marvelbackend-01.herokuapp.com/charac/favorites",
         formData,
         {
           headers: {

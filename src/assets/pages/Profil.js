@@ -3,32 +3,30 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Profil = ({ userId,setToken, setUserId }) => {
+const Profil = ({ userId, setToken, setUserId }) => {
   const [LoadChara, setLoadChara] = useState(true);
-  const [loadInfos, setLoadInfos] = useState(true); 
+  const [loadInfos, setLoadInfos] = useState(true);
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
 
-
-  // AXIOS REQUEST FOR USER INFO : 
+  // AXIOS REQUEST FOR USER INFO :
   useEffect(() => {
     const data = async () => {
       const response = await axios.get(
-        `http://localhost:4100/user/infos?id=${userId}`
+        `https://marvelbackend-01.herokuapp.com/user/infos?id=${userId}`
       );
       setUserInfo(response.data);
-      setLoadInfos(false); 
-    }
-    data(); 
-  }, [userId])
+      setLoadInfos(false);
+    };
+    data();
+  }, [userId]);
 
   // AXIOS REQUEST PROFIL DATABASE BY USERID
   useEffect(() => {
-
     const favoritesData = async () => {
       const response = await axios.get(
-        `http://localhost:4100/profil?id=${userId}`
+        `https://marvelbackend-01.herokuapp.com/profil?id=${userId}`
       );
       setData(response.data);
       setLoadChara(false);
@@ -52,7 +50,7 @@ const Profil = ({ userId,setToken, setUserId }) => {
     <section className="profil wrapper">
       <nav>
         <h1>
-          Bonjour  <span>{userInfo.account.username} </span> !
+          Bonjour <span>{userInfo?.account?.username} </span> !
         </h1>
         <button onClick={handleDeconnect}>Deconnexion</button>
       </nav>

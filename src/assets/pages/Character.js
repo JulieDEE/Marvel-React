@@ -15,7 +15,7 @@ const Character = ({token, userId }) => {
   useEffect(() => {
     const comicsData = async () => {
       const response = await axios.get(
-        `http://localhost:4100/comics/${characterId}`
+        `https://marvelbackend-01.herokuapp.com/comics/${characterId}`
       );
       setData(response.data);
       setIsLoading(false);

@@ -13,10 +13,13 @@ const Login = ({ token, setToken, setUserId}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4100/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://marvelbackend-01.herokuapp.com/user/login",
+        {
+          email,
+          password,
+        }
+      );
       setToken(response.data.token);
         Cookies.set("token", response.data.token);
         setUserId(response.data.id); 

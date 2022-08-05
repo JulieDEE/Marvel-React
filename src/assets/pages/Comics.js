@@ -53,7 +53,7 @@ const Comics = ({ data, love, token }) => {
         }
       }
       const response = await axios.get(
-        "http://localhost:4100/comics" + filters
+        "https://marvelbackend-01.herokuapp.com/comics" + filters
       );
       setComicData(response.data);
       setIsLoading(false);
